@@ -31,7 +31,7 @@ class Fire {
 
     send = messages => {
 
-        messages.array.forEach(item => {
+        messages.forEach(item => {
             const messages = {
                 text: item.text,
                 timestamp : firebase.database.ServerValue.TIMESTAMP,
@@ -57,7 +57,7 @@ class Fire {
     };
 
     get = callback => {
-        this.db.on("child_added", snapshot => callback(this.parse(snapshot)));
+        this.db.on('child_added', snapshot => callback(this.parse(snapshot)));
     };
 
     off() {
@@ -69,8 +69,8 @@ class Fire {
     }
 
 
-    get vid() {
-        return (firebase.auth().currentUser || {}).vid;
+    get uid() {
+        return (firebase.auth().currentUser || {}).uid;
     }
 }
 

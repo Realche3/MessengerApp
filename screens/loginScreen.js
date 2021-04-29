@@ -1,7 +1,7 @@
 import React from "react";
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native";
 import {Ionicons} from '@expo/vector-icons'
-
+import { AntDesign } from '@expo/vector-icons';
 export default class loginScreen extends React.Component {
 
     state = {
@@ -24,10 +24,10 @@ export default class loginScreen extends React.Component {
                 />
             </View>
             <View style={{marginHorizontal: 32}}>
-                <Text style={styles.header}>UserName</Text>
+                <Text style={styles.header}>User Name</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Design in to code"
+                    placeholder="follow me on IG : realche3"
                     onChangeText = {name => {
                         this.setState({name});
                     }}
@@ -37,7 +37,7 @@ export default class loginScreen extends React.Component {
                 <View style={{alignItems: "flex-end", marginTop: 64}}>
 
                     <TouchableOpacity style={styles.continue} onPress={this.continue}>
-                        <Ionicons name="md-arrow-round-forward" size={24} color="#FFF" />
+                    <AntDesign name="arrowright" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -48,7 +48,7 @@ export default class loginScreen extends React.Component {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#F4F5F7',
+      backgroundColor: '#cffeff',
     
     },
     circle : {
@@ -81,7 +81,7 @@ export default class loginScreen extends React.Component {
         width: 70,
         height: 70,
         borderRadius: 70/2,
-        backgroundColor: "#9075E3",
+        backgroundColor: "#fbffc9",
         alignItems: 'center',
         justifyContent : "center"
 

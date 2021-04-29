@@ -1,13 +1,17 @@
 import React from "react";
-import {Platform, KeyboardAvoidingView, SafeAreaView} from "react-native";
+import {Platform, KeyboardAvoidingView, SafeAreaView,Text} from "react-native";
 import {GiftedChat}  from 'react-native-gifted-chat';
 import fire from "../fire";
 import Fire from "../fire";
+import { Ionicons } from '@expo/vector-icons';
 
 export default class chatScreen extends React.Component {
    
     state = {
         messages : []
+    }
+    back = () => {
+        this.props.navigation.navigate("Login")
     }
 
     get user() {
@@ -30,7 +34,8 @@ export default class chatScreen extends React.Component {
     }
    
     render () {
-        const chat = <GiftedChat messages={this.state.messages} onSend={Fire.send} user={this.user} />
+        const chat = <GiftedChat messages={this.state.messages} onSend={Fire.send} user={this.user} />;
+
         if(Platform.OS == 'android'){
             return (
                 <KeyboardAvoidingView style={{flex: 1}} behavior= "padding" keyboardVerticalOffset={30} enabled>
@@ -38,9 +43,17 @@ export default class chatScreen extends React.Component {
                 </KeyboardAvoidingView>
             );
         }
-        return <SafeAreaView style={{flex: 1}}>
+        return( 
+        <SafeAreaView style={{flex: 1}}>
+          
+            <SafeAreaView style={{backgroundColor:"#cffeff", height: 40, flexDirection: "row"}}>
+                    <Ionicons name="arrow-back-circle-sharp" size={35} color="green" style={{marginLeft:5}} onPress={this.back} />
+                    <Text style={{color:"Green", marginLeft: 100, marginTop:10, fontWeight:"bold", fontSize: 16}}>Safe Chat</Text>
+            </SafeAreaView>
+
             {chat}
-        </SafeAreaView>;
+        </SafeAreaView>
+        );
    }
 }
 
